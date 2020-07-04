@@ -1,11 +1,17 @@
 import numpy as np
 
 
+BATCHES = [5, 50, 100]
+ITERS = 150
+
+
 def get_subgradient(w, reg_param, data, labels):
+    sample = data[0]
+    sample_length = len(sample)
     m = len(data)
     only_w = w[: len(w) - 1]
     b = w[-1]
-    sm = np.zeros(m+1)
+    sm = np.zeros(sample_length+1)
     for i in range(m):
         y_i = labels[i]
         x_i = data[i]
@@ -96,7 +102,7 @@ def test_error(w, test_data, test_labels):
 image_size = 28
 no_of_different_labels = 2
 image_pixels = image_size * image_size
-data_path = r'C:\Users\amitb\PycharmProjects\IML\ex3\dataset\mldata'
+data_path = r'C:\Users\amitb\PycharmProjects\IML\ex6\dataset\mldata'
 train_data = np.loadtxt(data_path + r"\mnist_train.csv",
                         delimiter=",")
 test_data = np.loadtxt(data_path + r"\mnist_test.csv",
@@ -129,3 +135,13 @@ y_test = y_test.reshape((len(y_test),))
 y_train[y_train == 0] = -1
 y_test[y_test == 0] = -1
 
+
+sample = x_train[0]
+w_length = len(sample) + 1
+zero_w = np.zeros(w_length)
+random_w = np.random.rand(w_length)
+eta = np.random.rand(1)[0]
+reg_param = np.random.randint(0, 10, 1)[0] + np.random.rand(1)[0]
+
+
+gd(x_train, y_train, ITERS, eta, random_w, reg_param)
