@@ -97,4 +97,13 @@ def get_original_and_noised_product():
             sigma), 3))
 
 
-get_original_and_noised_product()
+# get_original_and_noised_product()
+
+
+def run_all():
+    plot_all_eigenvals()
+    determine_original_eigenvals_amount()
+    get_original_and_noised_product()
+
+
+# run_all()
