@@ -47,10 +47,10 @@ class DigitsData:
 
         y_train = y_train.reshape((len(y_train),))
         y_test = y_test.reshape((len(y_test),))
-        y_train[y_train == d_1] = 1
-        y_test[y_test == d_1] = 1
-        y_train[y_train == d_2] = -1
-        y_test[y_test == d_2] = -1
+        y_train[y_train == d_1] = -1
+        y_test[y_test == d_1] = -1
+        y_train[y_train == d_2] = 1
+        y_test[y_test == d_2] = 1
         self.x_train, self.y_train, self.x_test, self.y_test = \
             x_train, y_train, x_test, y_test
 
